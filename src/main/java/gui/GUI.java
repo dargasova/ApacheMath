@@ -1,5 +1,6 @@
 package gui;
 
+import dataManager.ExcelDataManager;
 import excel.ExcelWriter;
 import calculator.Calculator;
 import org.apache.commons.math3.exception.MathIllegalArgumentException;
@@ -21,7 +22,6 @@ public class GUI extends JFrame {
     Calculator calculator = new Calculator();
     gui.JFileChooser jfilechooser = new gui.JFileChooser();
     String path;
-    ExcelWriter excelWriter;
     ArrayList<ArrayList<Double>> list;
     ArrayList<ArrayList<?>> results = new ArrayList<>();
     GridBagConstraints gbc = new GridBagConstraints();
@@ -82,13 +82,12 @@ public class GUI extends JFrame {
             }
         });
 
-
         calculateButton.addActionListener(e -> {
             try {
-                data = new dataManager.ExcelDataManager(path, comboBox.getSelectedIndex());
-                list = data.getDataArray();
+                ExcelDataManager data = new ExcelDataManager(path, comboBox.getSelectedIndex());
+                ArrayList<ArrayList<Double>> list = data.getDataArray();
 
-                if (list.isEmpty() || list.getFirst().isEmpty()) {
+                if (list.isEmpty() || list.get(0).isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Лист данных пуст или содержит недостаточно информации для расчетов", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -105,14 +104,13 @@ public class GUI extends JFrame {
             }
         });
 
-
         saveButton.addActionListener(e -> {
             try {
                 if (results.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Нет данных для сохранения", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
-                excelWriter = new ExcelWriter(path, results, calculator);
+                ExcelWriter excelWriter = new ExcelWriter(path, results, calculator);
                 JOptionPane.showMessageDialog(null, "Файл успешно сохранен!");
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Ошибка при сохранении файла: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
@@ -120,7 +118,6 @@ public class GUI extends JFrame {
                 JOptionPane.showMessageDialog(null, "Произошла непредвиденная ошибка: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
             }
         });
-
 
         exitButton.addActionListener(e -> System.exit(0));
 
@@ -130,7 +127,6 @@ public class GUI extends JFrame {
         setLocationRelativeTo(null);
         pack();
     }
-
 
     private void addComponent(Component component, int gridy) {
         gbc.gridx = 0;

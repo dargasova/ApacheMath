@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6fcfd170-98f0-4b9b-831f-d2eacd8fbd41" name="Changes" comment="third commit">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Результат.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/output/Результат.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/excel/ExcelReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/excel/ExcelReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/excel/ExcelWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/excel/ExcelWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +81,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Laba_2.jar">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Laba_2" />
@@ -96,8 +101,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.Laba_2.jar" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.Laba_2.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -209,7 +214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716461211981</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="third commit">
+      <option name="closed" value="true" />
+      <created>1716461572418</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1716461572418</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

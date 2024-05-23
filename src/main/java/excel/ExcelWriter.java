@@ -6,7 +6,9 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class ExcelWriter {
@@ -49,20 +51,21 @@ public class ExcelWriter {
         }
     }
 
-
     private void writeResults(XSSFSheet sheet) {
         int rowIndex = 0;
         for (ArrayList<?> sublist : results) {
-            Row row = sheet.createRow(rowIndex);
+            Row row = sheet.createRow(rowIndex++);
             int colIndex = 0;
             for (Object element : sublist) {
                 Cell cell = row.createCell(colIndex++);
-                cell.setCellValue(element.toString());
+                if (element instanceof Double) {
+                    cell.setCellValue((Double) element);
+                } else {
+                    cell.setCellValue(element.toString());
+                }
             }
-            rowIndex++;
         }
     }
-
 
     private void writeCovariation(XSSFSheet sheetCov) {
         int rowCov = 0;

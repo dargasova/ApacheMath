@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-
 public class ExcelReader {
 
     FileInputStream file;
@@ -27,6 +26,7 @@ public class ExcelReader {
     public ArrayList<ArrayList<Double>> readExcel() {
         ArrayList<ArrayList<Double>> result = new ArrayList<>();
         try {
+            FormulaEvaluator evaluator = workbook.getCreationHelper().createFormulaEvaluator();
             Iterator<Row> rowIterator = sheet.iterator();
             if (rowIterator.hasNext()) {
                 Row headerRow = rowIterator.next();
@@ -43,17 +43,28 @@ public class ExcelReader {
                         if (cell != null) {
                             if (cell.getCellType() == CellType.NUMERIC) {
                                 result.get(i).add(cell.getNumericCellValue());
+                            } else if (cell.getCellType() == CellType.FORMULA) {
+                                CellValue cellValue = evaluator.evaluate(cell);
+                                if (cellValue.getCellType() == CellType.NUMERIC) {
+                                    result.get(i).add(cellValue.getNumberValue());
+                                }
                             }
                         }
                     }
                 }
             }
-            workbook.close();
-            file.close();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } finally {
+            try {
+                if (workbook != null) {
+                    workbook.close();
+                }
+                if (file != null) {
+                    file.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return result;
     }
 }
-
