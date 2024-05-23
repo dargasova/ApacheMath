@@ -8,7 +8,7 @@ target/
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
-.out/artifacts
+out/artifacts
 *.iws
 *.iml
 *.ipr
