@@ -2,7 +2,7 @@ package operations;
 
 import java.util.ArrayList;
 
-public class Cardinality implements Operation{
+public class Cardinality implements Operation {
 
     String name;
     ArrayList<ArrayList<Double>> list;

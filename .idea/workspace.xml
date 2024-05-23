@@ -12,6 +12,24 @@
     <list default="true" id="6fcfd170-98f0-4b9b-831f-d2eacd8fbd41" name="Changes" comment="third commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Laba_2_jar/Laba_2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/output/Результат.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/output/Результат.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/calculator/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/calculator/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/excel/ExcelWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/excel/ExcelWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/gui/Jfilechooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/gui/Jfilechooser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/Cardinality.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/Cardinality.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/ConfidenceInterval.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/ConfidenceInterval.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/Maximum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/Maximum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/Operation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/Operation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/Scope.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/Scope.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/StandardDeviation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/StandardDeviation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/operations/Variance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/operations/Variance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/calculator/Calculator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/calculator/Calculator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/excel/ExcelWriter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excel/ExcelWriter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/GUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/GUI.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/gui/JFileChooser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/gui/JFileChooser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/operations/ConfidenceInterval.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/operations/ConfidenceInterval.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +68,19 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/User/IdeaProjects/Laba_2/out",
+    "last_opened_file_path": "C:/Users/User/IdeaProjects/Laba_2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/Users/daryanefedova/IdeaProjects/Laba_2/src/main/java/Laba_2/Main.java",
-    "project.structure.last.edited": "Artifacts",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -77,7 +100,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Laba_2.jar">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Laba_2" />
@@ -97,10 +120,18 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.Laba_2.jar" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="JAR Application.Laba_2.jar" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
+        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -113,6 +144,8 @@
       <workItem from="1716457180289" duration="4000" />
       <workItem from="1716458163273" duration="19000" />
       <workItem from="1716458287157" duration="236000" />
+      <workItem from="1716491961357" duration="19000" />
+      <workItem from="1716491986110" duration="8973000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -226,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716465480206</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="third commit">
+      <option name="closed" value="true" />
+      <created>1716465851609</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1716465851609</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

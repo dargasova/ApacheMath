@@ -23,6 +23,8 @@ public class Calculator {
     }
 
     public void calculate(ArrayList<ArrayList<Double>> data) {
+        results.clear();
+        operations.clear();
 
         operations.add(geometricMean = new GeometricMean(data));
         operations.add(arithmeticMean = new ArithmeticMean(data));
@@ -35,14 +37,19 @@ public class Calculator {
         operations.add(maximum = new Maximum(data));
         operations.add(minimum = new Minimum(data));
         covarianceCoefficients = new CovarianceCoefficients(data);
-
     }
 
-    public ArrayList<ArrayList<?>> fillResults() {
+    public ArrayList<ArrayList<String>> fillResults() {
+        ArrayList<ArrayList<String>> resultsWithNames = new ArrayList<>();
         for (Operation operation : operations) {
-            results.add(operation.getResult());
+            ArrayList<String> row = new ArrayList<>();
+            row.add(operation.getName());
+            for (Object result : operation.getResult()) {
+                row.add(result.toString());
+            }
+            resultsWithNames.add(row);
         }
-        return results;
+        return resultsWithNames;
     }
 
     public ArrayList<ArrayList<Double>> getCovariation() {

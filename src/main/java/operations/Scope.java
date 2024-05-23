@@ -4,7 +4,7 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 import java.util.ArrayList;
 
-public class Scope implements Operation{
+public class Scope implements Operation {
 
     String name;
     ArrayList<ArrayList<Double>> list;

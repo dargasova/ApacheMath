@@ -24,7 +24,6 @@ public class JFileChooser extends Component {
         fileChooser.setDialogTitle("Выбор файла");
         fileChooser.setFileSelectionMode(javax.swing.JFileChooser.FILES_ONLY);
 
-        // Добавляем фильтр для файлов формата .xlsx
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Excel Files", "xlsx");
         fileChooser.setFileFilter(filter);
 

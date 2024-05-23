@@ -54,6 +54,7 @@ public class ConfidenceInterval implements Operation {
             result.add(interval);
         }
     }
+
     @Override
     public ArrayList<String> getResult() {
         return result;

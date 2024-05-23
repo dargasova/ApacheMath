@@ -1,12 +1,13 @@
 package gui;
 
+import calculator.Calculator;
 import dataManager.ExcelDataManager;
 import excel.ExcelWriter;
-import calculator.Calculator;
 import org.apache.commons.math3.exception.MathIllegalArgumentException;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
@@ -18,13 +19,13 @@ public class GUI extends JFrame {
     JButton calculateButton = new JButton("Провести расчеты");
     JButton exitButton = new JButton("Выйти из программы");
     JComboBox<String> comboBox = new JComboBox<>();
-    dataManager.ExcelDataManager data;
     Calculator calculator = new Calculator();
     gui.JFileChooser jfilechooser = new gui.JFileChooser();
     String path;
-    ArrayList<ArrayList<Double>> list;
-    ArrayList<ArrayList<?>> results = new ArrayList<>();
+    ArrayList<ArrayList<String>> results = new ArrayList<>();
     GridBagConstraints gbc = new GridBagConstraints();
+    private boolean isFileSaved = false;
+    private boolean isFileOpened = false;
 
     public GUI() throws URISyntaxException {
         try {
@@ -66,28 +67,35 @@ public class GUI extends JFrame {
         openButton.addActionListener(e -> {
             try {
                 jfilechooser = new JFileChooser();
+                path = jfilechooser.openFile();
+
+                if (path == null) {
+                    JOptionPane.showMessageDialog(null, "Файл не выбран", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                isFileOpened = true;
+
+                comboBox.removeAllItems();
+                for (String sheet : new Sheets(path).getNames()) {
+                    comboBox.addItem(sheet);
+                }
             } catch (URISyntaxException ex) {
                 throw new RuntimeException(ex);
-            }
-            path = jfilechooser.openFile();
-
-            if (path == null) {
-                JOptionPane.showMessageDialog(null, "Файл не выбран", "Ошибка", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-
-            comboBox.removeAllItems();
-            for (String sheet : new Sheets(path).getNames()) {
-                comboBox.addItem(sheet);
             }
         });
 
         calculateButton.addActionListener(e -> {
             try {
+                if (!isFileOpened) {
+                    JOptionPane.showMessageDialog(null, "Файл не был открыт", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 ExcelDataManager data = new ExcelDataManager(path, comboBox.getSelectedIndex());
                 ArrayList<ArrayList<Double>> list = data.getDataArray();
 
-                if (list.isEmpty() || list.get(0).isEmpty()) {
+                if (list.isEmpty() || list.getFirst().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Лист данных пуст или содержит недостаточно информации для расчетов", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
@@ -106,18 +114,35 @@ public class GUI extends JFrame {
 
         saveButton.addActionListener(e -> {
             try {
+                if (!isFileOpened) {
+                    JOptionPane.showMessageDialog(null, "Файл не был открыт", "Ошибка", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
                 if (results.isEmpty()) {
                     JOptionPane.showMessageDialog(null, "Нет данных для сохранения", "Ошибка", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
+                File outputFile = new File(path);
+                if (!outputFile.exists() || !outputFile.canWrite()) {
+                    throw new IOException("Файл недоступен для записи. Возможно, он открыт в другом приложении.");
+                }
+
                 ExcelWriter excelWriter = new ExcelWriter(path, results, calculator);
-                JOptionPane.showMessageDialog(null, "Файл успешно сохранен!");
+                excelWriter.writeIntoExcel();
+
+                isFileSaved = true;
+                showMessageIfFileSaved();
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null, "Ошибка при сохранении файла: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                isFileSaved = false;
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "Произошла непредвиденная ошибка: " + ex.getMessage(), "Ошибка", JOptionPane.ERROR_MESSAGE);
+                isFileSaved = false;
             }
         });
+
 
         exitButton.addActionListener(e -> System.exit(0));
 
@@ -128,13 +153,20 @@ public class GUI extends JFrame {
         pack();
     }
 
+    public static void main(String[] args) throws URISyntaxException {
+        new GUI();
+    }
+
     private void addComponent(Component component, int gridy) {
         gbc.gridx = 0;
         gbc.gridy = gridy;
         add(component, gbc);
     }
 
-    public static void main(String[] args) throws URISyntaxException {
-        new GUI();
+    public void showMessageIfFileSaved() {
+        if (isFileSaved) {
+            JOptionPane.showMessageDialog(null, "Файл успешно сохранен!");
+            isFileSaved = false;
+        }
     }
 }

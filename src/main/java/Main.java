@@ -6,7 +6,7 @@ import java.net.URISyntaxException;
 public class Main {
 
     public static void main(String[] args) throws URISyntaxException {
-        new GUI().setSize(new Dimension(500,500));
+        new GUI().setSize(new Dimension(500, 500));
     }
 }
 
